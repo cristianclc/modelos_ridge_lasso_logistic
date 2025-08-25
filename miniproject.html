@@ -692,9 +692,7 @@ Name: odometer, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Límites: 279,984.40
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registros después de eliminar outliers: 414078
+Registros después de eliminar outliers: 414078
 </pre></div>
 </div>
 </div>
@@ -1424,12 +1422,12 @@ transmission    654.636701  7.037956e-143
 <span class="g g-Whitespace">    </span><span class="mi">710</span>         <span class="c1"># use SVD solver if matrix is singular</span>
 <span class="g g-Whitespace">    </span><span class="mi">711</span>         <span class="n">solver</span> <span class="o">=</span> <span class="s2">&quot;svd&quot;</span>
 
-<span class="nn">File ~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\linear_model\_ridge.py:210,</span> in <span class="ni">_solve_cholesky</span><span class="nt">(X, y, alpha)</span>
+<span class="nn">File ~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\linear_model\_ridge.py:209,</span> in <span class="ni">_solve_cholesky</span><span class="nt">(X, y, alpha)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="n">n_targets</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="n">A</span> <span class="o">=</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">210</span> <span class="n">Xy</span> <span class="o">=</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">209</span> <span class="n">A</span> <span class="o">=</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="n">Xy</span> <span class="o">=</span> <span class="n">safe_sparse_dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="n">one_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="k">if</span> <span class="n">one_alpha</span><span class="p">:</span>
 
 <span class="nn">File ~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\utils\extmath.py:189,</span> in <span class="ni">safe_sparse_dot</span><span class="nt">(a, b, dense_output)</span>
 <span class="g g-Whitespace">    </span><span class="mi">187</span>         <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
