@@ -357,9 +357,36 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelos Ridge, Lasso y LogisticRegression</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-librerias">Importar Librerías</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">Lectura de Datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas-variables-numericas">Histogramas variables numéricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio">Precio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer">Odometer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-dispersion-entre-variables-numericas">Diagramas de dispersión entre variables numéricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer-year">Odometer - Year</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorias-mas-frecuentes">Categorías más frecuentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturer">Manufacturer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cylinders">Cylinders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuel">Fuel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-con-respecto-a-precio-promedio">Variables categóricas con respecto a precio promedio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-region">Precio - Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-state">Precio - State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-year">Precio - Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-manufacturer">Precio - Manufacturer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-modelo">Precio - Modelo</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tratamiento-de-outliers-en-variables-numericas">Tratamiento de outliers en variables numéricas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price">Price</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer">Odometer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Odometer</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores Nulos</a></li>
@@ -369,7 +396,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminacion-de-variables">Eliminación de Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminacion-de-observaciones-con-valores-faltantes-na">Eliminación de Observaciones con Valores Faltantes (NA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-la-variable-binaria-highdemand">Creación de la Variable Binaria “HighDemand”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-la-variable-binaria-highdemand">Creación de la Variable Binaria “HighDemand”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#piechart-de-la-variable-highdemand">Piechart de la variable HighDemand</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separacion-de-los-conjutos-x-y-reg-y-clf">Separación de los conjutos X, y_reg, y_clf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-correlacion-no-parametrica-para-variables-numericas-spearman">Análisis de Correlación No Paramétrica para Variables Numéricas (Spearman)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamiento-de-variables-categoricas-de-alta-cardinalidad">Agrupamiento de Variables Categóricas de Alta Cardinalidad</a><ul class="nav section-nav flex-column">
@@ -391,10 +421,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-desempeno">Evaluación de desempeño</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ridge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Lasso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Lasso</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-final-del-modelo-de-clasificacion-en-el-conjunto-de-prueba">Evaluación Final del Modelo de Clasificación en el Conjunto de Prueba</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Regresión logística</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Regresión logística</a></li>
 </ul>
 </li>
 </ul>
@@ -449,12 +479,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\USER\miniconda3\envs\ml_venv\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="lectura-de-datos">
@@ -474,7 +498,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Path to dataset files: C:\Users\USER\.cache\kagglehub\datasets\austinreese\craigslist-carstrucks-data\versions\10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: Looks like you&#39;re using an outdated `kagglehub` version (installed: 0.3.12), please consider upgrading to the latest version (0.3.13).
+Path to dataset files: C:\Users\USER\.cache\kagglehub\datasets\austinreese\craigslist-carstrucks-data\versions\10
 </pre></div>
 </div>
 </div>
@@ -564,6 +589,296 @@ memory usage: 84.7+ MB
 </li>
 </ol>
 <p>El dataset presenta un volumen masivo (426,880 registros) con amplia dimensionalidad (26 variables), ofreciendo un amplio potencial para análisis multivariados. Sin embargo, existe un desequilibrio significativo en la composición de datos, con predominio de variables categóricas (19 columnas) sobre numéricas (7 columnas), lo que implica desafíos en el preprocesamiento para modelos predictivos. La combinación de tamaño sustancial y diversidad de variables proporciona una base sólida para análisis exhaustivos, aunque requiere transformaciones intensivas en el manejo de fechas y limpieza de columnas vacías para maximizar su utilidad analítica.</p>
+<section id="histogramas-variables-numericas">
+<h2>Histogramas variables numéricas<a class="headerlink" href="#histogramas-variables-numericas" title="Permalink to this heading">#</a></h2>
+<section id="precio">
+<h3>Precio<a class="headerlink" href="#precio" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skew:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kurtosis: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histograma de price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Skew: 254.41
+Kurtosis:  69205.09
+</pre></div>
+</div>
+<img alt="_images/217f72750bc5df015d85197dc361305728067dfd51002784a5fff15c46b3459b.png" src="_images/217f72750bc5df015d85197dc361305728067dfd51002784a5fff15c46b3459b.png" />
+</div>
+</div>
+</section>
+<section id="odometer">
+<h3>Odometer<a class="headerlink" href="#odometer" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skew:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;odometer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kurtosis: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;odometer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;odometer&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histograma de odometer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Skew: 38.04
+Kurtosis:  1690.76
+</pre></div>
+</div>
+<img alt="_images/b7d8e38e5dfbd4ceb18618e15be495e7a49d911244a8aec7c6a231daf4b95158.png" src="_images/b7d8e38e5dfbd4ceb18618e15be495e7a49d911244a8aec7c6a231daf4b95158.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="diagramas-de-dispersion-entre-variables-numericas">
+<h2>Diagramas de dispersión entre variables numéricas<a class="headerlink" href="#diagramas-de-dispersion-entre-variables-numericas" title="Permalink to this heading">#</a></h2>
+<section id="odometer-year">
+<h3>Odometer - Year<a class="headerlink" href="#odometer-year" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;odometer&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diagrama de Dispersión odometer vs price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;odometer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9f72dbc049394a185c65afc5208506999b69d6524270a5e281f45f5bcd04c7ec.png" src="_images/9f72dbc049394a185c65afc5208506999b69d6524270a5e281f45f5bcd04c7ec.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="categorias-mas-frecuentes">
+<h2>Categorías más frecuentes<a class="headerlink" href="#categorias-mas-frecuentes" title="Permalink to this heading">#</a></h2>
+<section id="region">
+<h3>Region<a class="headerlink" href="#region" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 15 Car Regions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Region&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c931a3a66cd762d2b52cdd05cfa6f538ec9a5794419d0d9843dc0840749d7d08.png" src="_images/c931a3a66cd762d2b52cdd05cfa6f538ec9a5794419d0d9843dc0840749d7d08.png" />
+</div>
+</div>
+</section>
+<section id="state">
+<h3>State<a class="headerlink" href="#state" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 15 Car States&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cb1abfee6b43a9163d0dcd6c506053d635a0cae934baa3d25dcc4a45cd926d01.png" src="_images/cb1abfee6b43a9163d0dcd6c506053d635a0cae934baa3d25dcc4a45cd926d01.png" />
+</div>
+</div>
+</section>
+<section id="manufacturer">
+<h3>Manufacturer<a class="headerlink" href="#manufacturer" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;manufacturer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 15 Car Manufacturers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Manufacturer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/419233a4ef3d238c3751b139ef1767018bcbe2b3a287511dafcc0c7b76e67bf6.png" src="_images/419233a4ef3d238c3751b139ef1767018bcbe2b3a287511dafcc0c7b76e67bf6.png" />
+</div>
+</div>
+</section>
+<section id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 15 Car Models&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/63e702929070bcbcb798cdd9a0a1d3376358e23a41e2b612921d2973019984ca.png" src="_images/63e702929070bcbcb798cdd9a0a1d3376358e23a41e2b612921d2973019984ca.png" />
+</div>
+</div>
+</section>
+<section id="condition">
+<h3>Condition<a class="headerlink" href="#condition" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Car Condition Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Condition&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9d047d4359fa737ed195c4df1778cd3f4442b04b5881be101c1bf65187a4d06f.png" src="_images/9d047d4359fa737ed195c4df1778cd3f4442b04b5881be101c1bf65187a4d06f.png" />
+</div>
+</div>
+</section>
+<section id="cylinders">
+<h3>Cylinders<a class="headerlink" href="#cylinders" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cylinders&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Car Cylinders Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cylinders&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4da4924575249161ed51bfbe5f9d4005f33136c95baadb2536914d2a008e7f9c.png" src="_images/4da4924575249161ed51bfbe5f9d4005f33136c95baadb2536914d2a008e7f9c.png" />
+</div>
+</div>
+</section>
+<section id="fuel">
+<h3>Fuel<a class="headerlink" href="#fuel" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Car Fuel Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fuel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0cdf4a67762a1d02b6af557df6f4133b81bf3e1612ab41cb3ed8872c7eceb2af.png" src="_images/0cdf4a67762a1d02b6af557df6f4133b81bf3e1612ab41cb3ed8872c7eceb2af.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="variables-categoricas-con-respecto-a-precio-promedio">
+<h2>Variables categóricas con respecto a precio promedio<a class="headerlink" href="#variables-categoricas-con-respecto-a-precio-promedio" title="Permalink to this heading">#</a></h2>
+<section id="precio-region">
+<h3>Precio - Region<a class="headerlink" href="#precio-region" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">region_price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">region_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Regions by Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5caeb2182b616c436c575222029e7522913729b9528dcdd02fb54ca6499cc050.png" src="_images/5caeb2182b616c436c575222029e7522913729b9528dcdd02fb54ca6499cc050.png" />
+</div>
+</div>
+</section>
+<section id="precio-state">
+<h3>Precio - State<a class="headerlink" href="#precio-state" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">state_price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">state_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 States by Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/430ff6a459edc9f704b17db4b39963354471bab401a6f39c78c1dc48fe224b8d.png" src="_images/430ff6a459edc9f704b17db4b39963354471bab401a6f39c78c1dc48fe224b8d.png" />
+</div>
+</div>
+</section>
+<section id="precio-year">
+<h3>Precio - Year<a class="headerlink" href="#precio-year" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">year_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Years by Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1f62a9954b9cbbe7fbda041e1c20c6f147eafff1acf5511c49cdd3b022381b71.png" src="_images/1f62a9954b9cbbe7fbda041e1c20c6f147eafff1acf5511c49cdd3b022381b71.png" />
+</div>
+</div>
+</section>
+<section id="precio-manufacturer">
+<h3>Precio - Manufacturer<a class="headerlink" href="#precio-manufacturer" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">manufacturer_price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;manufacturer&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">manufacturer_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Manufacturers by Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/335466dc9b03a1741daf060170645e3b9c87b16c6a27179eeb30ed51bc6e252a.png" src="_images/335466dc9b03a1741daf060170645e3b9c87b16c6a27179eeb30ed51bc6e252a.png" />
+</div>
+</div>
+</section>
+<section id="precio-modelo">
+<h3>Precio - Modelo<a class="headerlink" href="#precio-modelo" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">model_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top 10 Models by Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2ecb4077a8ac5edc3218512dc72d5ddfa5c76399751dc358f57ac87c2c2326f8.png" src="_images/2ecb4077a8ac5edc3218512dc72d5ddfa5c76399751dc358f57ac87c2c2326f8.png" />
+</div>
+</div>
+</section>
+</section>
 <section id="tratamiento-de-outliers-en-variables-numericas">
 <h2>Tratamiento de outliers en variables numéricas<a class="headerlink" href="#tratamiento-de-outliers-en-variables-numericas" title="Permalink to this heading">#</a></h2>
 <p>Con el objetivo de mitigar la influencia de valores atípicos extremos en las variables numéricas odometer y year, se aplicará un procedimiento de limpieza basado en percentiles. En particular, se eliminarán aquellas observaciones cuyos valores superen el percentil 99 de cada variable, ya que estos pueden distorsionar los análisis estadísticos posteriores o afectar negativamente el desempeño de los modelos predictivos. Este enfoque permite conservar la mayor parte de la información útil del conjunto de datos, al tiempo que se controla el efecto de outliers que podrían no ser representativos del comportamiento general del mercado.</p>
@@ -587,20 +902,6 @@ max      3,736,928,711.00
 Name: price, dtype: object
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot de Price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precio&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/96e6137b88d931498cc6c5b76b69f362652c6072950cb1d7a82b1c3c74d5d64f.png" src="_images/96e6137b88d931498cc6c5b76b69f362652c6072950cb1d7a82b1c3c74d5d64f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -654,8 +955,8 @@ Name: price, dtype: object
 </div>
 </div>
 </section>
-<section id="odometer">
-<h3>Odometer<a class="headerlink" href="#odometer" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h3>Odometer<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;odometer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
@@ -779,7 +1080,6 @@ dtype: float64
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> y <code class="docutils literal notranslate"><span class="pre">url</span></code> (0%): Son identificadores únicos del sistema. Su completitud del 100% indica que la base de datos mantiene integridad en su estructura fundamental. Esto es crítico para trazar cada registro individualmente.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">region</span></code> y <code class="docutils literal notranslate"><span class="pre">region_url</span></code> (0%): La ubicación geográfica principal está siempre registrada. Esto sugiere que el proceso de recolección valora y exige esta información, probablemente porque es esencial para el negocio o análisis de mercado regional.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> (0%): La variable objetivo principal está completa. Para un modelo de predicción de precios, esto es excelente. Indica que el precio no es opcional en los listados, lo cual tiene sentido comercialmente.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">state</span></code> (0%): Complementa la información regional, proporcionando contexto geográfico completo.</p></li>
 </ul>
 </li>
@@ -792,6 +1092,7 @@ dtype: float64
 </li>
 <li><p><strong>Variables con Faltantes Moderados (5-30%)</strong></p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> (7.37%): La variable objetivo principal cuenta con un 7.37% de datos faltantes. Optaremos por la remoción de las filas que cuenten con datos faltantes de la variable precio.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">manufacturer</span></code> (4.13%): Aproximadamente en 4 de cada 100 vehículos no se registró la marca.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">model</span></code> (1.24%): Interesantemente, hay más marcas faltantes que modelos.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">title_status</span></code> (1.93%): Esto indica que es información generalmente disponible pero no estrictamente obligatoria.</p></li>
@@ -924,6 +1225,37 @@ dtype: int64
 </div>
 </div>
 </div>
+<section id="piechart-de-la-variable-highdemand">
+<h3>Piechart de la variable HighDemand<a class="headerlink" href="#piechart-de-la-variable-highdemand" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_order</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;HighDemand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;pastel&#39;</span><span class="p">)</span>  
+    
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;HighDemand&#39;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">value_order</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Conteo de HighDemand&quot;</span><span class="p">)</span>
+    
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span><span class="s1">&#39;edge&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HighDemand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">value_order</span><span class="p">]</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribución de HighDemand&#39;</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9c2fb657fdae17762f2dec5ffc06204aaa3d4caa3b0507367f4a79d7098a59aa.png" src="_images/9c2fb657fdae17762f2dec5ffc06204aaa3d4caa3b0507367f4a79d7098a59aa.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="separacion-de-los-conjutos-x-y-reg-y-clf">
 <h2>Separación de los conjutos X, y_reg, y_clf<a class="headerlink" href="#separacion-de-los-conjutos-x-y-reg-y-clf" title="Permalink to this heading">#</a></h2>
@@ -1405,14 +1737,14 @@ R²: 0.6896062494676016
 <img alt="_images/18b41ea779c0123b2c669d1630c3e814e0b2f11e292e3c6b68b83f7cee1946e0.png" src="_images/18b41ea779c0123b2c669d1630c3e814e0b2f11e292e3c6b68b83f7cee1946e0.png" />
 </div>
 </div>
-<section id="id1">
-<h2>Ridge<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h2>Ridge<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>El modelo Ridge logra explicar aproximadamente el 69.1% (R² = 0.691) de la variabilidad de la variable objetivo. Esto indica un poder predictivo moderado, donde poco más de la mitad de los cambios en la variable dependiente pueden ser explicados por las variables independientes incluidas en el modelo.</p>
 <p>En términos de error, el modelo comete, en promedio, un error de 4203 (MAE) en sus predicciones. El RMSE, que penaliza más los errores grandes, es de 6275. Esto sugiere que, si bien el error promedio es de alrededor de cinco mil unidades, existen algunas predicciones con errores considerablemente más grandes que elevan esta métrica.</p>
 <p>El gráfico muestra que los puntos comienzan a dispersarse notablemente conforme los valores reales aumentan (especialmente después de las 60000 unidades). Esta dispersión más ancha confirma la existencia de errores de predicción mayores para valores altos. En conclusión el modelo presenta un desempeño aceptable pero con margen de mejora. Es útil para obtener una aproximación general, pero sus predicciones para valores altos, deben ser tomadas con cautela debido a su error considerable.</p>
 </section>
-<section id="id2">
-<h2>Lasso<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h2>Lasso<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>Se observa que el desempeño del modelo Lasso es casi idéntico al del modelo Ridge. Explica el 68.9% de la variabilidad de los datos, lo que representa una reducción de 0.2 puntos porcentuales respecto al modelo Ridge.</p>
 <p>Sus métricas de error son prácticamente iguales: un MAE de 4205 vs. 4203 de Ridge y un RMSE de 6289 vs. 6275.</p>
 <p>El gráfico de dispersión para Lasso sería virtualmente indistinguible del de Ridge, mostrando el mismo patrón de dispersión y los mismos problemas para predecir valores altos con precisión. Se puede concluir que el modelo Lasso no ofrece una ventaja real sobre el modelo Ridge para este conjunto de datos en particular. Ambos modelos tienen el mismo poder explicativo y cometen errores de magnitud similar.</p>
@@ -1485,8 +1817,8 @@ F1-score: 0.8573373264361556
 <img alt="_images/7fbce365d0bca29bee5194741d38669c42788bd6adcd54db17ac673efa933cf8.png" src="_images/7fbce365d0bca29bee5194741d38669c42788bd6adcd54db17ac673efa933cf8.png" />
 </div>
 </div>
-<section id="id3">
-<h3>Regresión logística<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>Regresión logística<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>El modelo de Regresión Logística muestra un desempeño sobresaliente en la clasificación de la demanda, con valores altos y balanceados en precisión, recall y F1-score, además de un AUC de 0.93 que confirma su fuerte capacidad de discriminación.</p>
 <p>En términos prácticos, el modelo es confiable tanto para identificar correctamente la alta demanda como para evitar sobreestimaciones, lo cual lo hace útil en contextos de planificación de recursos o gestión operativa. Los errores (falsos positivos y falsos negativos) existen, pero están en proporciones manejables frente al número total de aciertos.</p>
 </section>
@@ -1554,9 +1886,36 @@ F1-score: 0.8573373264361556
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelos Ridge, Lasso y LogisticRegression</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-librerias">Importar Librerías</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">Lectura de Datos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas-variables-numericas">Histogramas variables numéricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio">Precio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer">Odometer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-dispersion-entre-variables-numericas">Diagramas de dispersión entre variables numéricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer-year">Odometer - Year</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorias-mas-frecuentes">Categorías más frecuentes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state">State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manufacturer">Manufacturer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition">Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cylinders">Cylinders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fuel">Fuel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-con-respecto-a-precio-promedio">Variables categóricas con respecto a precio promedio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-region">Precio - Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-state">Precio - State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-year">Precio - Year</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-manufacturer">Precio - Manufacturer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-modelo">Precio - Modelo</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tratamiento-de-outliers-en-variables-numericas">Tratamiento de outliers en variables numéricas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price">Price</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odometer">Odometer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Odometer</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores Nulos</a></li>
@@ -1566,7 +1925,10 @@ F1-score: 0.8573373264361556
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminacion-de-variables">Eliminación de Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminacion-de-observaciones-con-valores-faltantes-na">Eliminación de Observaciones con Valores Faltantes (NA)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-la-variable-binaria-highdemand">Creación de la Variable Binaria “HighDemand”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-la-variable-binaria-highdemand">Creación de la Variable Binaria “HighDemand”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#piechart-de-la-variable-highdemand">Piechart de la variable HighDemand</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separacion-de-los-conjutos-x-y-reg-y-clf">Separación de los conjutos X, y_reg, y_clf</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-correlacion-no-parametrica-para-variables-numericas-spearman">Análisis de Correlación No Paramétrica para Variables Numéricas (Spearman)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupamiento-de-variables-categoricas-de-alta-cardinalidad">Agrupamiento de Variables Categóricas de Alta Cardinalidad</a><ul class="nav section-nav flex-column">
@@ -1588,10 +1950,10 @@ F1-score: 0.8573373264361556
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-desempeno">Evaluación de desempeño</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ridge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Lasso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Lasso</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-final-del-modelo-de-clasificacion-en-el-conjunto-de-prueba">Evaluación Final del Modelo de Clasificación en el Conjunto de Prueba</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Regresión logística</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Regresión logística</a></li>
 </ul>
 </li>
 </ul>
